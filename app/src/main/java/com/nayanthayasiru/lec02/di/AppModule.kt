@@ -11,14 +11,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+object AppModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    @Singleton
     @Provides
     fun provideGithubService(retrofit: Retrofit):GithubService = retrofit.create(GithubService::class.java)
 }
