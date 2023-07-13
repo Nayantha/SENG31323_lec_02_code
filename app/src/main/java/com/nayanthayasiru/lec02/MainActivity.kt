@@ -1,8 +1,8 @@
 package com.nayanthayasiru.lec02
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.nayanthayasiru.lec02.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.nayanthayasiru.lec02.ui.github.GithubFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, GithubFragment.newInstance())
                 .commitNow()
         }
     }
