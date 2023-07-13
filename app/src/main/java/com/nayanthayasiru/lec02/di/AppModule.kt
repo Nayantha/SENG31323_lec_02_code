@@ -1,5 +1,6 @@
 package com.nayanthayasiru.lec02.di
 
+import com.nayanthayasiru.lec02.ui.github.GithubService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,4 +16,5 @@ class AppModule {
         .baseUrl("https://api.github.com")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+    fun provideGithubService(retrofit: Retrofit):GithubService = retrofit.create(GithubService::class.java)
 }
