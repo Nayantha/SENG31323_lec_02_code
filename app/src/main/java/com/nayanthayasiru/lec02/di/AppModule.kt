@@ -16,5 +16,6 @@ class AppModule {
         .baseUrl("https://api.github.com")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+    @Provides
     fun provideGithubService(retrofit: Retrofit):GithubService = retrofit.create(GithubService::class.java)
 }
