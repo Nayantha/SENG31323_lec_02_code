@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -12,5 +13,6 @@ class AppModule {
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://api.github.com")
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
